@@ -4,21 +4,42 @@ import { StyleSheet,SafeAreaView,Button,TextInput, Text, View } from 'react-nati
 
 
 const V1 = ({setFinalName}) => {
-    const [nam, setNam]= React.useState("");
+    const [nam, setNam]= React.useState(null);
+    const [email, setEmail] = React.useState(null);
     const [text, onChangeText] = React.useState("");
+    const [data, setdata] = React.useState(false)
+
+    let validateInfo = () => {
+       if(nam !== null && email !== null){
+         setdata(true);
+       }
+    }
     return (
      
         <View>
-
-        <TextInput
-                style={styles.input}
-                onChangeText={setNam}
-                value={nam}
-                placeholder="What's your name !"
-                />
-
-        <Button  color="#FF5733" title="Start" onPress={() => setFinalName(nam)}/>
+          {
+            !data ?
+            <>
+                    
+                  <TextInput
+                  style={styles.input}
+                  onChangeText={setNam}
+                  value={nam}
+                  placeholder="Your name"
+                  />
+                    <TextInput
+                    style={styles.input}
+                    onChangeText={setEmail}
+                    value={email}
+                    placeholder="Your email"
+                    />
+                  
+                    <Button  color="#FF5733" title="Start" onPress={validateInfo}/>
+                          
+              </>
         
+            : <Text>Thank you for submiting Mr.{nam}</Text>          
+          }
         </View>    
     )
 }

@@ -16,6 +16,7 @@ export default function App() {
   const [finalname, setFinalNam] = React.useState(null);
 
   let putname = (na) => setFinalNam(na);
+  let [screen, setScreen] = React.useState(1);
 
 
 
@@ -23,19 +24,15 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.h1}> Hello {finalname}</Text>
-
-
-
-
-        {
-          finalname == null?  
-          <V1  setFinalName={putname} />
-          : null
+   
+           {
+          screen == 1?  
+          
+        <StartScreen onclick={() => setScreen(2)}/>
+          : <V1  setFinalName={putname} />
         }
 
-   */}
-        <StartScreen/>
+
 
     </View>
   );

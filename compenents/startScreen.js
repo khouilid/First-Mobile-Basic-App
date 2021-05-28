@@ -1,17 +1,21 @@
 import React from 'react';
-import { StyleSheet,SafeAreaView,Button,TextInput, Text, View, Platform, StatusBar } from 'react-native';
+import { StyleSheet,SafeAreaView,Button,TextInput, Text, View, Platform,Image, StatusBar } from 'react-native';
+import CustomBtn from './CustomBtn'
+
 
 
 const StartScreen = ({onclick}) => {
     return (
         <View style={styles.start}>
+                   <Image
+                        style={styles.Logo}
+                        source={require('../src/imgs/download.png')}
+                    />
 
-            <Text style={styles.title}>Hello this is start screen !</Text>
+            <Text style={styles.title}>Hello champion, let's go for a maratone</Text>
 
       
-            <Button  color="#FF5733" width="80" title="Start" onPress={onclick}/>
-        
-            
+            <CustomBtn action={onclick}/>  
         </View>
     )
 }
@@ -29,10 +33,16 @@ const styles = StyleSheet.create({
     },
     title:{
         fontWeight: 'bold',
-        fontSize: 30,
+        fontSize: 20,
         color:"white",
         width:'60%',
+        textAlign:'center',
+        width:300,
+        margin:15,
       
+    },
+    Logo:{
+        borderRadius:5,
     },
   
    
